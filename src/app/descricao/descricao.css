@@ -1,0 +1,115 @@
+:host {
+    display: block;
+    color: var(--color-base-content);
+}
+
+.intro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-neutral);
+    margin: 0 0 1rem;
+}
+
+h1 {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    margin: 0 0 1rem;
+}
+
+.lead {
+    margin: 0 0 1.5rem;
+    color: color-mix(in oklch, var(--color-base-content) 70%, transparent);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.intro__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.cta {
+    background: var(--color-primary);
+    color: var(--color-primary-content);
+    text-decoration: none;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: 0 12px 28px color-mix(in oklch, var(--color-primary) 30%, transparent);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px color-mix(in oklch, var(--color-primary) 40%, transparent);
+}
+
+.note {
+    color: color-mix(in oklch, var(--color-base-content) 65%, transparent);
+    font-size: 0.95rem;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.chip {
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-base-300);
+    background: color-mix(in oklch, var(--color-primary) 14%, transparent);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.intro__card {
+    background: var(--color-base-100);
+    border-radius: 24px;
+    padding: 2rem;
+    border: 1px solid var(--color-base-300);
+    box-shadow: 0 18px 40px color-mix(in oklch, var(--color-neutral) 18%, transparent);
+}
+
+.intro__card h2 {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    margin: 0 0 1rem;
+    font-size: 1.6rem;
+}
+
+.intro__card ol {
+    padding-left: 1.2rem;
+    margin: 0 0 1rem;
+    color: color-mix(in oklch, var(--color-base-content) 70%, transparent);
+    line-height: 1.7;
+}
+
+.intro__card li {
+    margin-bottom: 0.6rem;
+}
+
+.footnote {
+    margin: 0;
+    color: var(--color-neutral);
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .intro__card {
+        padding: 1.6rem;
+    }
+}

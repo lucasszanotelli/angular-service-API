@@ -1,12 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+import { Descricao } from './descricao/descricao';
+import { UsoApi } from './uso-api/uso-api';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Descricao, UsoApi],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class App {
-  protected readonly title = signal('angular-service-API');
-}
+export class App { }

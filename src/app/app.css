@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:host {
+    --color-base-100: oklch(98% 0.014 180.72);
+    --color-base-200: oklch(95% 0.051 180.801);
+    --color-base-300: oklch(91% 0.096 180.426);
+    --color-base-content: oklch(38% 0.063 188.416);
+    --color-primary: oklch(85% 0.138 181.071);
+    --color-primary-content: oklch(27% 0.046 192.524);
+    --color-secondary: oklch(87% 0.169 91.605);
+    --color-secondary-content: oklch(27% 0.077 45.635);
+    --color-accent: oklch(85.104% 0.28496 141.813 / 0.103);
+    --color-accent-content: oklch(26% 0.079 36.259);
+    --color-neutral: oklch(43% 0.078 188.216);
+    --color-neutral-content: oklch(98% 0.014 180.72);
+    --color-info: oklch(62% 0.214 259.815);
+    --color-info-content: oklch(97% 0.014 254.604);
+    --color-success: oklch(69% 0.17 162.48);
+    --color-success-content: oklch(97% 0.021 166.113);
+    --color-warning: oklch(79% 0.184 86.047);
+    --color-warning-content: oklch(98% 0.026 102.212);
+    --color-error: oklch(63% 0.237 25.331);
+    --color-error-content: oklch(97% 0.013 17.38);
+    --radius-selector: 2rem;
+    --radius-field: 0rem;
+    --radius-box: 0rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 1;
+    --noise: 0;
+    display: block;
+    min-height: 100dvh;
+    font-family: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.page {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+    padding: 3.5rem 0 4rem;
+    display: grid;
+    gap: 3rem;
+}
+
+.footer {
+    padding: 2rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    box-shadow: var(--shadow);
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 700px) {
+    .page {
+        padding: 2.5rem 0 3rem;
+    }
+}

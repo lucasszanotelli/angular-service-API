@@ -1,0 +1,69 @@
+<section class="api" id="uso-api">
+    <div class="api__header">
+        <div>
+            <h2>Buscar Pokemon em tempo real</h2>
+            <p>Digite um nome ou numero e veja os dados retornados pela PokeAPI.</p>
+        </div>
+    </div>
+
+    <form class="search" [formGroup]="form" (ngSubmit)="search()" aria-label="Formulario de busca">
+        <label class="search__label" for="query">Nome ou numero</label>
+        <div class="search__row">
+            <input id="query" type="text" formControlName="query" placeholder="Ex: pikachu ou 25" autocomplete="off" />
+            <button type="submit" [disabled]="isLoading() || form.invalid">
+                {{ isLoading() ? 'Buscando...' : 'Buscar' }}
+            </button>
+        </div>
+        <p class="helper">Dica: tente charizard, eevee ou 133.</p>
+    </form>
+
+    <div class="status" aria-live="polite">
+        <p *ngIf="isLoading()">Carregando dados da PokeAPI...</p>
+        <p *ngIf="!isLoading() && error()" class="error">{{ error() }}</p>
+    </div>
+
+    <article *ngIf="pokemon() as p" class="card" aria-label="Detalhes do Pokemon">
+        <header class="card__header">
+            <div>
+                <span class="chip">#{{ p.id }}</span>
+                <h3>{{ p.name }}</h3>
+                <p class="subtitle">
+                    Altura: {{ p.height }} | Peso: {{ p.weight }} | Base XP: {{ p.baseExperience }}
+                </p>
+            </div>
+            <img *ngIf="p.image" class="sprite" [src]="p.image" [alt]="p.name" width="160" height="160"
+                loading="lazy" />
+            <div *ngIf="!p.image" class="sprite sprite--empty" aria-hidden="true">Sem imagem</div>
+        </header>
+
+        <div class="card__grid">
+            <div class="info">
+                <h4>Tipos</h4>
+                <div class="tag-list">
+                    <span *ngFor="let type of p.types" class="tag">{{ type }}</span>
+                </div>
+            </div>
+            <div class="info">
+                <h4>Habilidades</h4>
+                <div class="tag-list">
+                    <span *ngFor="let ability of p.abilities" class="tag tag--alt">{{ ability }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <h4>Estatisticas base</h4>
+            <div class="stats__list">
+                <div *ngFor="let stat of p.stats" class="stat">
+                    <div class="stat__row">
+                        <span>{{ stat.label }}</span>
+                        <span>{{ stat.value }}</span>
+                    </div>
+                    <div class="meter" aria-hidden="true">
+                        <span class="meter__fill" [style.width.%]="stat.percent"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
